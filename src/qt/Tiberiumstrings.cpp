@@ -89,10 +89,10 @@ QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in Tiberium/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in Tiberium/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -187,10 +187,10 @@ QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 PIV."),
+"transaction that are not equal 10000 Tiberium."),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"PIV."),
+"Tiberium."),
 QT_TRANSLATE_NOOP("Tiberium-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -304,7 +304,7 @@ QT_TRANSLATE_NOOP("Tiberium-core", "Failed to listen on any port. Use -listen=0 
 QT_TRANSLATE_NOOP("Tiberium-core", "Failed to read block index"),
 QT_TRANSLATE_NOOP("Tiberium-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("Tiberium-core", "Failed to write block index"),
-QT_TRANSLATE_NOOP("Tiberium-core", "Fee (in PIV/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("Tiberium-core", "Fee (in Tiberium/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("Tiberium-core", "Finalizing transaction."),
 QT_TRANSLATE_NOOP("Tiberium-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("Tiberium-core", "Found enough users, signing ( waiting %s )"),

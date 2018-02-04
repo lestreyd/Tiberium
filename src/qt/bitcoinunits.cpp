@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(PIV);
-    unitlist.append(mPIV);
-    unitlist.append(uPIV);
+    unitlist.append(Tiberium);
+    unitlist.append(mTiberium);
+    unitlist.append(uTiberium);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case PIV:
-    case mPIV:
-    case uPIV:
+    case Tiberium:
+    case mTiberium:
+    case uTiberium:
         return true;
     default:
         return false;
@@ -40,11 +40,11 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case PIV:
+    case Tiberium:
         return QString("Tiberium");
-    case mPIV:
+    case mTiberium:
         return QString("mTiberium");
-    case uPIV:
+    case uTiberium:
         return QString::fromUtf8("uTiberium");
     default:
         return QString("???");
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case PIV:
-            return QString("PIV");
-        case mPIV:
-            return QString("mPIV");
-        case uPIV:
-            return QString::fromUtf8("μPIV");
+        case Tiberium:
+            return QString("Tiberium");
+        case mTiberium:
+            return QString("mTiberium");
+        case uTiberium:
+            return QString::fromUtf8("μTiberium");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case PIV:
-            return QString("tPIV");
-        case mPIV:
-            return QString("mtPIV");
-        case uPIV:
-            return QString::fromUtf8("μtPIV");
+        case Tiberium:
+            return QString("tTiberium");
+        case mTiberium:
+            return QString("mtTiberium");
+        case uTiberium:
+            return QString::fromUtf8("μtTiberium");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case PIV:
-            return QString("PIV");
-        case mPIV:
-            return QString("Milli-PIV (1 / 1" THIN_SP_UTF8 "000)");
-        case uPIV:
-            return QString("Micro-PIV (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case Tiberium:
+            return QString("Tiberium");
+        case mTiberium:
+            return QString("Milli-Tiberium (1 / 1" THIN_SP_UTF8 "000)");
+        case uTiberium:
+            return QString("Micro-Tiberium (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case PIV:
-            return QString("TestPIVs");
-        case mPIV:
-            return QString("Milli-TestPIV (1 / 1" THIN_SP_UTF8 "000)");
-        case uPIV:
-            return QString("Micro-TestPIV (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case Tiberium:
+            return QString("TestTiberiums");
+        case mTiberium:
+            return QString("Milli-TestTiberium (1 / 1" THIN_SP_UTF8 "000)");
+        case uTiberium:
+            return QString("Micro-TestTiberium (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case PIV:
+    case Tiberium:
         return 100000000;
-    case mPIV:
+    case mTiberium:
         return 100000;
-    case uPIV:
+    case uTiberium:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case PIV:
+    case Tiberium:
         return 8;
-    case mPIV:
+    case mTiberium:
         return 5;
-    case uPIV:
+    case uTiberium:
         return 2;
     default:
         return 0;

@@ -172,7 +172,7 @@
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_3">
                         <item>
-                         <widget class="QLabel" name="labelzPIVActions">
+                         <widget class="QLabel" name="labelzTiberiumActions">
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
@@ -189,7 +189,7 @@
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIVSyncStatus">
+                         <widget class="QLabel" name="labelzTiberiumSyncStatus">
                           <property name="toolTip">
                            <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Tiberium network after a connection is established, but this process has not completed yet.</string>
                           </property>
@@ -244,7 +244,7 @@
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_4">
                         <item>
-                         <widget class="QPushButton" name="pushButtonMintzPIV">
+                         <widget class="QPushButton" name="pushButtonMintzTiberium">
                           <property name="minimumSize">
                            <size>
                             <width>131</width>
@@ -276,14 +276,14 @@
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIV_2">
+                         <widget class="QLabel" name="labelzTiberium_2">
                           <property name="text">
-                           <string>zPIV</string>
+                           <string>zTiberium</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIVAmountText">
+                         <widget class="QLabel" name="labelzTiberiumAmountText">
                           <property name="toolTip">
                            <string>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</string>
                           </property>
@@ -296,7 +296,7 @@
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIVAmountValue">
+                         <widget class="QLabel" name="labelzTiberiumAmountValue">
                           <property name="font">
                            <font>
                             <weight>75</weight>
@@ -307,7 +307,7 @@
                            <string>Enter an amount of Piv to convert to zPiv</string>
                           </property>
                           <property name="text">
-                           <string>0.000 000 00 PIV</string>
+                           <string>0.000 000 00 Tiberium</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -483,7 +483,7 @@
                              <enum>Qt::ActionsContextMenu</enum>
                             </property>
                             <property name="text">
-                             <string notr="true">0.00 PIV</string>
+                             <string notr="true">0.00 Tiberium</string>
                             </property>
                             <property name="textInteractionFlags">
                              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -674,7 +674,7 @@
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_6">
                         <item>
-                         <widget class="QPushButton" name="pushButtonSpendzPIV">
+                         <widget class="QPushButton" name="pushButtonSpendzTiberium">
                           <property name="minimumSize">
                            <size>
                             <width>131</width>
@@ -690,9 +690,9 @@
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIVBalanceText">
+                         <widget class="QLabel" name="labelzTiberiumBalanceText">
                           <property name="toolTip">
-                           <string>Available (mature and spendable) zPIV for spending</string>
+                           <string>Available (mature and spendable) zTiberium for spending</string>
                           </property>
                           <property name="text">
                            <string>Available Balance:</string>
@@ -711,12 +711,12 @@
                            </font>
                           </property>
                           <property name="toolTip">
-                           <string>Available (mature and spendable) zPIV for spending
+                           <string>Available (mature and spendable) zTiberium for spending
 
-zPIV are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</string>
+zTiberium are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</string>
                           </property>
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -916,15 +916,15 @@ zPIV are mature when they have more than 20 confirmations AND more than 2 mints 
                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                           </property>
                           <property name="buddy">
-                           <cstring>zPIVpayAmount</cstring>
+                           <cstring>zTiberiumpayAmount</cstring>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QLineEdit" name="zPIVpayAmount"/>
+                         <widget class="QLineEdit" name="zTiberiumpayAmount"/>
                         </item>
                         <item>
-                         <widget class="QLabel" name="labelzPIV">
+                         <widget class="QLabel" name="labelzTiberium">
                           <property name="minimumSize">
                            <size>
                             <width>55</width>
@@ -932,7 +932,7 @@ zPIV are mature when they have more than 20 confirmations AND more than 2 mints 
                            </size>
                           </property>
                           <property name="text">
-                           <string>zPIV</string>
+                           <string>zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1011,7 +1011,7 @@ zPIV are mature when they have more than 20 confirmations AND more than 2 mints 
                       <item>
                        <layout class="QHBoxLayout" name="horizontalLayout_21">
                         <item>
-                         <widget class="QLabel" name="labelzPIVStats">
+                         <widget class="QLabel" name="labelzTiberiumStats">
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
@@ -1091,7 +1091,7 @@ zPIV are mature when they have more than 20 confirmations AND more than 2 mints 
                            </font>
                           </property>
                           <property name="toolTip">
-                           <string>Total Balance including unconfirmed and immature zPIV</string>
+                           <string>Total Balance including unconfirmed and immature zTiberium</string>
                           </property>
                           <property name="text">
                            <string>Total Zerocoin  Balance:</string>
@@ -1129,10 +1129,10 @@ zPIV are mature when they have more than 20 confirmations AND more than 2 mints 
                            </font>
                           </property>
                           <property name="toolTip">
-                           <string>Total Balance including unconfirmed and immature zPIV</string>
+                           <string>Total Balance including unconfirmed and immature zTiberium</string>
                           </property>
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                           <property name="alignment">
                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1589,14 +1589,14 @@ Immature: confirmed, but less than 2 mints of the same denomination after it was
                         <item>
                          <widget class="QLabel" name="label_AutoMintStatus">
                           <property name="toolTip">
-                           <string>Show the current status of automatic zPIV minting.
+                           <string>Show the current status of automatic zTiberium minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to Tiberium.conf
 - disable: add 'enablezeromint=0' to Tiberium.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zPIV
+- menu Settings-&gt;Options-&gt;Percentage of autominted zTiberium
 
 </string>
                           </property>
@@ -1676,7 +1676,7 @@ To change the percentage (no restart required):
                            </font>
                           </property>
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1707,7 +1707,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount1">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1738,7 +1738,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount5">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1769,7 +1769,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount10">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1800,7 +1800,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount50">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1831,7 +1831,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount100">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1862,7 +1862,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount500">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1893,7 +1893,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount1000">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -1924,7 +1924,7 @@ To change the percentage (no restart required):
                         <item>
                          <widget class="QLabel" name="labelZsupplyAmount5000">
                           <property name="text">
-                           <string>0 zPIV</string>
+                           <string>0 zTiberium</string>
                           </property>
                          </widget>
                         </item>
@@ -2054,7 +2054,7 @@ To change the percentage (no restart required):
          <enum>Qt::ActionsContextMenu</enum>
         </property>
         <property name="text">
-         <string notr="true">0.000 000 00 PIV</string>
+         <string notr="true">0.000 000 00 Tiberium</string>
         </property>
         <property name="textInteractionFlags">
          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -2136,7 +2136,7 @@ To change the percentage (no restart required):
            <enum>Qt::ActionsContextMenu</enum>
           </property>
           <property name="text">
-           <string notr="true">0.00 PIV</string>
+           <string notr="true">0.00 Tiberium</string>
           </property>
           <property name="textInteractionFlags">
            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -2358,7 +2358,7 @@ To change the percentage (no restart required):
          <enum>Qt::ActionsContextMenu</enum>
         </property>
         <property name="text">
-         <string notr="true">0.000 000 00 PIV</string>
+         <string notr="true">0.000 000 00 Tiberium</string>
         </property>
         <property name="textInteractionFlags">
          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
