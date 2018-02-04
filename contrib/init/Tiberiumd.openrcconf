@@ -1,0 +1,26 @@
+# /etc/conf.d/Tiberiumd: config file for /etc/init.d/Tiberiumd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/Tiberium/Tiberium.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/Tiberiumd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/Tiberiumd.pid"
+
+# Where to write Tiberiumd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/Tiberiumd"
+
+# User and group to own Tiberiumd process
+#BITCOIND_USER="Tiberium"
+#BITCOIND_GROUP="Tiberium"
+
+# Path to Tiberiumd executable
+#BITCOIND_BIN="/usr/bin/Tiberiumd"
+
+# Nice value to run Tiberiumd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
