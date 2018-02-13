@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The Tiberium developers
+// Copyright (c) 2018 The Tiberium developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,28 +53,31 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256());
+    // + new zero checkpoint for Tiberium (main network)
+    (0, uint256("00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1518307200, // * UNIX timestamp of last checkpoint block
+    604331460, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x001"));
+//+new genesis hash for Tiberium testnet
+    boost::assign::map_list_of(0, uint256("0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1518307200,
+    604331461,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x001"));
+//+new parameters for Tiberium regtest
+    boost::assign::map_list_of(0, uint256("5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1518307200,
+    604331462,
     0,
     100};
 
@@ -99,12 +102,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x90;
-        pchMessageStart[1] = 0xc4;
-        pchMessageStart[2] = 0xfd;
-        pchMessageStart[3] = 0xe9;
+        pchMessageStart[0] = 0xbf;
+        pchMessageStart[1] = 0x0c;
+        pchMessageStart[2] = 0x6b;
+        pchMessageStart[3] = 0xbd;
         vAlertPubKey = ParseHex("049cf17e11ca8e328d1b7f1dcaa878d63586eb28d23ef21ef3fbd49f554b2c86a74b37b638ec3edbeee357f3098c9ffe7d55bfad5b87ddabfff5b8a45a58930249");
-        nDefaultPort = 65000;
+        nDefaultPort = 9887;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Tiberium starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -122,7 +125,7 @@ public:
         nLastPOWBlock = 259200;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
-        nZerocoinStartTime = 1508214600; // October 17, 2017 4:30:00 AM
+        nZerocoinStartTime = 1535760000; // 01.09.2018 00.00.00
         nBlockEnforceSerialRange = 895400; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = 891737; //First block that bad serials emerged
@@ -145,24 +148,20 @@ public:
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 250 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04c10e83b2703ccf322f7dbd62dd5855ac7c10bd055814ce121ba32607d573b8810c02c0582aed05b4deb9c4b77b26d92428c61256cd42774babea0a073b2ed0c9") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04ecd1bdd48d28ac426db164a303742fd8c4751f742e260763a5c4f9b675d7d417e0aa0ac8811a8816d1747993deaab9d7a84ffb3b9cfe9735779d23175fd4788c") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1454124731;
+        genesis.nTime = 604331460;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2402015;
+        genesis.nNonce = 1621596;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
-        assert(genesis.hashMerkleRoot == uint256("0x1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
+        assert(hashGenesisBlock == uint256("00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
+        assert(genesis.hashMerkleRoot == uint256("e395c62b6fb34d27a3bd2a176cd5bf093b55d376fb5664144f5f541dd97d32a6"));
 
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "Tiberium.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "Tiberium.seed2.fuzzbawls.pw"));    // Secondary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("coin-server.com", "coin-server.com"));         // Single node address
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
-        vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address
+        vSeeds.clear();
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 30);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
@@ -184,9 +183,9 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
+        strSporkKey = "04d33b2dc6f90e15117204f5ee869c414c8251d757c2185e483f78d5eaf5b7e1c0e39cf202622709332926d9f17889340a65556e7c76009786ffef2abf5672ce92";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
-        nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
+        nStartMasternodePayments = 604331460; //24.02.2018 13.51
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
