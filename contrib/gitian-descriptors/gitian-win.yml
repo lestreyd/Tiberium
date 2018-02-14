@@ -1,5 +1,5 @@
 ---
-name: "Tiberium-win-3.1"
+name: "Tiberium-win-1.0.0.1"
 enable_cache: true
 suites:
 - "trusty"
@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/Tiberium-project/Tiberium.git"
+- "url": "https://github.com/lestreyd/Tiberium.git"
   "dir": "Tiberium"
 files: []
 script: |

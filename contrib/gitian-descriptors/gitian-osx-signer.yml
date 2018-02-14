@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/Tiberium-project/Tiberium-detached-sigs.git"
+- "url": "https://github.com/lestreyd/Tiberium-detached-sigs.git"
   "dir": "signature"
 files:
 - "Tiberium-osx-unsigned.tar.gz"

@@ -1,5 +1,5 @@
 ---
-name: "Tiberium-osx-3.1"
+name: "Tiberium-osx-1.0.0.1"
 enable_cache: true
 suites:
 - "trusty"
@@ -28,7 +28,7 @@ packages:
 - "python-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/Tiberium-project/Tiberium.git"
+- "url": "https://github.com/lestreyd/Tiberium.git"
   "dir": "Tiberium"
 files:
 - "MacOSX10.11.sdk.tar.gz"
