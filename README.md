@@ -22,8 +22,6 @@ More information at [Tiberium.org](http://www.Tiberium.org) Visit our ANN thread
 <tr><td>Premine</td><td>60,000 Tiberium*</td></tr>
 </table>
 
-*60,000 Tiberium Premine was burned in block [279917](http://www.presstab.pw/phpexplorer/Tiberium/block.php?blockhash=206d9cfe859798a0b0898ab00d7300be94de0f5469bb446cecb41c3e173a57e0)
-
 ### Reward Distribution
 
 <table>
