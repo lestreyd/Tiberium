@@ -158,7 +158,7 @@ public:
         genesis.nNonce = 1621596;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
+        assert(hashGenesisBlock == uint256("0x00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
         assert(genesis.hashMerkleRoot == uint256("e395c62b6fb34d27a3bd2a176cd5bf093b55d376fb5664144f5f541dd97d32a6"));
 
         vSeeds.clear();
@@ -250,7 +250,7 @@ public:
         genesis.nNonce = 1002582;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
+        assert(hashGenesisBlock == uint256("0x0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -317,7 +317,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 19883;
-        assert(hashGenesisBlock == uint256("5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
+        assert(hashGenesisBlock == uint256("0x5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
