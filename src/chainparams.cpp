@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
+    (0, uint256("0x00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    604331460, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
+    1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -65,7 +65,7 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 //+new genesis hash for Tiberium testnet
-    boost::assign::map_list_of(0, uint256("0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
+    boost::assign::map_list_of(0, uint256("0x0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     604331461,
@@ -74,7 +74,7 @@ static const Checkpoints::CCheckpointData dataTestnet = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
 //+new parameters for Tiberium regtest
-    boost::assign::map_list_of(0, uint256("5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
+    boost::assign::map_list_of(0, uint256("0x5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
     604331462,
@@ -158,8 +158,8 @@ public:
         genesis.nNonce = 1621596;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
-        assert(genesis.hashMerkleRoot == uint256("e395c62b6fb34d27a3bd2a176cd5bf093b55d376fb5664144f5f541dd97d32a6"));
+        assert(hashGenesisBlock == uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
+        assert(genesis.hashMerkleRoot == uint256("faedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 
         vSeeds.clear();
 
