@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("0x00000548b4c5d75fcc8dfa8eb3da940b59ba25bdf93f2b6315857c58f6a8c4d0"));
+    (0, uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
@@ -142,7 +142,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Tiberium coin was created 10.02.2018 as fast and decentralized cryptocurrency with many possibilities. We exited to present you cc of the Future!";
+        const char* pszTimestamp = "Tiberium coin was created 28.02.2018 as fast and decentralized cryptocurrency with many possibilities. We exited to present you cc of the Future!";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -158,7 +158,7 @@ public:
         genesis.nNonce = 1621596;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
+        assert(hashGenesisBlock == uint256("0x000007c9d7d8264a3643b7acd2f2d7efab25d2037d63307989f03960a7e57dbf"));
         assert(genesis.hashMerkleRoot == uint256("faedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 
         vSeeds.clear();
