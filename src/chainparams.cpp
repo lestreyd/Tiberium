@@ -3,7 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2018 Tiberium developers
 // Distributed under the MIT software license, see the accompanying
-// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+// file COPYING or http://www.opensource.org/licenses/mit-license.file:///C:/Users/Farell%20Lestreyd/AppData/Local/GitHubDesktop/app-1.0.12/resources/app/index.htmlphp.
 
 #include "libzerocoin/Params.h"
 #include "chainparams.h"
@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
+    (0, uint256("0x00000a6bafc309dc19030e6a99cd913ba0a1f2b22b41c6a8e10abc80be3fc5e0"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
@@ -155,11 +155,11 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1519776000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 15831;
+        genesis.nNonce = 2402680;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
-        assert(genesis.hashMerkleRoot == uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
+        assert(hashGenesisBlock == uint256("0x00000a6bafc309dc19030e6a99cd913ba0a1f2b22b41c6a8e10abc80be3fc5e0"));
+        assert(genesis.hashMerkleRoot == uint256("0xe904ea7641422eab5de920e48b534e766df3c0765b7c8007c8255e9f602f1a98"));
 
         vSeeds.clear();
 
