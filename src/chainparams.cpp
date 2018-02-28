@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
+    (0, uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
@@ -65,19 +65,19 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 //+new genesis hash for Tiberium testnet
-    boost::assign::map_list_of(0, uint256("0x0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
+    boost::assign::map_list_of(0, uint256("0x000000a7320e0e25cc850b4a93a22cfab9ee78475fb01ef775e713c7c45892fa"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    604331461,
+    1519776001,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
 //+new parameters for Tiberium regtest
-    boost::assign::map_list_of(0, uint256("0x5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
+    boost::assign::map_list_of(0, uint256("0x0751498229e995ee55268a15eccac5aab8edf2642b17c578d38a3526864e5dbb"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    604331462,
+    1519776002,
     0,
     100};
 
@@ -128,9 +128,9 @@ public:
         nZerocoinStartTime = 1535760000; // 01.09.2018 00.00.00
         nBlockEnforceSerialRange = 895400; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = 908000; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 891737; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 891730; //Last valid accumulator checkpoint
-        nBlockEnforceInvalidUTXO = 902850; //Start enforcing the invalid UTXO's
+        nBlockFirstFraudulent = 0; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 0; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 0; //Start enforcing the invalid UTXO's
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -153,13 +153,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 604331460;
+        genesis.nTime = 1519776000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1621596;
+        genesis.nNonce = 15831;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007c9d7d8264a3643b7acd2f2d7efab25d2037d63307989f03960a7e57dbf"));
-        assert(genesis.hashMerkleRoot == uint256("faedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
+        assert(hashGenesisBlock == uint256("0x000007e266b439eb2e36c35dd297413ccff4b4b2119e3a3994e6373d8491a87a"));
+        assert(genesis.hashMerkleRoot == uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 
         vSeeds.clear();
 
@@ -185,7 +185,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04d33b2dc6f90e15117204f5ee869c414c8251d757c2185e483f78d5eaf5b7e1c0e39cf202622709332926d9f17889340a65556e7c76009786ffef2abf5672ce92";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
-        nStartMasternodePayments = 604331460; //24.02.2018 13.51
+        nStartMasternodePayments = 1519776000; //28.02.2018 00.00
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
@@ -246,11 +246,11 @@ public:
         nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 604331461;
-        genesis.nNonce = 1002582;
+        genesis.nTime = 1519776001;
+        genesis.nNonce = 2738070;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000032163aed36e57c9a75962f622d9ba453b5d1dc4719ed9d429078e7975bb"));
+        assert(hashGenesisBlock == uint256("0x000000a7320e0e25cc850b4a93a22cfab9ee78475fb01ef775e713c7c45892fa"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -277,7 +277,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04c93a0d0bf4a55ba53ad41744df9f381d645e972d2c0dc0f06ce091dcae1b4d22a0675aea5254f8887999bffef0a1d32836fc60c26bc001b18edde5befe57422e";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        nStartMasternodePayments = 604331461; //24.02.2018 13.51
+        nStartMasternodePayments = 1519776000; //28.02.2018
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
     }
@@ -311,13 +311,13 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Tiberium: 1 day
         nTargetSpacing = 1 * 60;        // Tiberium: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 604331462;
+        genesis.nTime = 1519776002;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 1;
+        genesis.nNonce = 2;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 19883;
-        assert(hashGenesisBlock == uint256("0x5ed16dc8a91286bba63ced41c29d9140dfb8c56bafe4db2c5773b09e826805ee"));
+        assert(hashGenesisBlock == uint256("0x0751498229e995ee55268a15eccac5aab8edf2642b17c578d38a3526864e5dbb"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
