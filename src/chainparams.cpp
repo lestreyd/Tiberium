@@ -57,7 +57,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (0, uint256("0x00000a6bafc309dc19030e6a99cd913ba0a1f2b22b41c6a8e10abc80be3fc5e0"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 24/02/2018 13.51)
+    1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -153,13 +153,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1519776000;
+        genesis.nTime = 1519936334;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2402680;
+        genesis.nNonce = 594081;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000a6bafc309dc19030e6a99cd913ba0a1f2b22b41c6a8e10abc80be3fc5e0"));
-        assert(genesis.hashMerkleRoot == uint256("0xe904ea7641422eab5de920e48b534e766df3c0765b7c8007c8255e9f602f1a98"));
+        assert(hashGenesisBlock == uint256("0x00000131a0caebfc4287b7fbdb5820a7315f7bff17f6bbc2edd4542002277c2e"));
+        assert(genesis.hashMerkleRoot == uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 
         vSeeds.clear();
 
@@ -185,7 +185,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04d33b2dc6f90e15117204f5ee869c414c8251d757c2185e483f78d5eaf5b7e1c0e39cf202622709332926d9f17889340a65556e7c76009786ffef2abf5672ce92";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
-        nStartMasternodePayments = 1519776000; //28.02.2018 00.00
+        nStartMasternodePayments = 1519936334; 
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
