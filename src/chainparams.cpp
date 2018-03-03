@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("0x00000a6bafc309dc19030e6a99cd913ba0a1f2b22b41c6a8e10abc80be3fc5e0"));
+    (0, uint256("0xfeb191f886b9facbe27957509bbbceff91cc91b80abd266ea43adea1fb86bd3b"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1519776000, // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
+    1519936334, // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -122,7 +122,7 @@ public:
         nMaxMoneyOut = 21000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 259200;
+        nLastPOWBlock = 0;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
         nZerocoinStartTime = 1535760000; // 01.09.2018 00.00.00
@@ -159,6 +159,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xfeb191f886b9facbe27957509bbbceff91cc91b80abd266ea43adea1fb86bd3b"));
+        fprintf(hashGenesisBlock);
         assert(genesis.hashMerkleRoot == uint256("0xfaedaeb561bd87f81f2baf41ce0b00ec47ecb61aed4e8d7194b1ff2b465c9ac9"));
 
         vSeeds.clear();
