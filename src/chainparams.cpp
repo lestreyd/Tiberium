@@ -158,9 +158,9 @@ public:
         genesis.nNonce = 1110941;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0"));
+        assert(hashGenesisBlock == uint256("0x0000029f807a42c427fe8b514c1760b09c9b8fce117618f0687eedf0b1af61c5"));
         //fprintf(to_string(hashGenesisBlock));
-        assert(genesis.hashMerkleRoot == uint256("0x0"));
+        assert(genesis.hashMerkleRoot == uint256("0xc6a535cd1c7f65b7b5972221c267fc5ab9a097e4a9ec4cd304b5547fb2af6dc8"));
 
         vSeeds.clear();
 
