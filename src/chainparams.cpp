@@ -383,7 +383,7 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
-        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsmain").c_str());
+        genesis.nBits = uint32_t(GetMainParametersFromConfig("bitsmain").c_str());
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
@@ -476,7 +476,7 @@ public:
         nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = GetMainParametersFromConfig("unixtime_test");
+        genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_test"));
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
@@ -542,7 +542,7 @@ public:
         nTargetSpacing = 1 * 60;        // Tiberium: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_reg"));
-        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsreg"));
+        genesis.nBits = uint32_t(GetMainParametersFromConfig("bitsreg"));
         genesis.nNonce = 3;
 
         hashGenesisBlock = genesis.GetHash();
