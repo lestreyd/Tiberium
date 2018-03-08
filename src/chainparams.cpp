@@ -14,6 +14,7 @@
 #include <assert.h>
 
 #include <boost/assign/list_of.hpp>
+#include <fstream>
 
 using namespace std;
 using namespace boost::assign;
@@ -284,7 +285,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     (0, uint256(GetMainParametersFromConfig("hashmain")));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    atoi(etMainParametersFromConfig("unixtime_main")), // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
+    atoi(GetMainParametersFromConfig("unixtime_main")), // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -370,7 +371,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = GetMainParametersFromConfig("timestamp");
+        const char* pszTimestamp = GetMainParametersFromConfig("timestamp").c_str();
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -382,7 +383,7 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
-        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsmain"));
+        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsmain").c_str());
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
