@@ -383,7 +383,7 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
-        genesis.nBits = uint32_t(GetMainParametersFromConfig("bitsmain").c_str());
+        genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
@@ -542,7 +542,7 @@ public:
         nTargetSpacing = 1 * 60;        // Tiberium: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_reg"));
-        genesis.nBits = uint32_t(GetMainParametersFromConfig("bitsreg"));
+        genesis.nBits = atoi(GetMainParametersFromConfig("bitsreg"));
         genesis.nNonce = 3;
 
         hashGenesisBlock = genesis.GetHash();
