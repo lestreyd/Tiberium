@@ -25,6 +25,233 @@ struct SeedSpec6 {
 
 #include "chainparamsseeds.h"
 
+string GetMainParametersFromConfig(string parameter)
+{
+        /*
+        declare new variables for reading from ini-file 
+        pubkeymain - public key for main network
+        pubkeytest - public key for test network
+        pubkeyreg - public key for regtest network
+        hashmain - genesis block for main network
+        hashtest - genesis block for test network
+        hashreg - genesis block for regtest network
+        timestamp - pszTimestamp text
+        unixtime_main - time in unix format for main network
+        unixtime_test - time in unix format for test network
+        unixtime_reg - time in unix format for regtest network
+        masternode_time - time in unix format for masternode payments activation
+        merkleroot - merkle root 
+        noncemain - nonce for main network
+        noncetest - nonce for test network
+        noncereg - nonce for reg network
+        bitsmain - nBits for main network
+        bitstest - nBits for test network
+        bitsreg - nBits for reg network
+        */
+
+        string linebuf; 
+        string optionbuf;       
+        string pubkeymain;
+        string pubkeytest;
+        string pubkeyreg;
+        
+        string hashtest;
+        string hashmain;
+        string hashreg;
+        string timestamp;
+        
+        string unixtime_main;
+        string unixtime_test;
+        string unixtime_reg;
+        
+        string masternode_time;
+        
+        string merkleroot;
+
+        string noncemain;
+        string noncetest;
+        string noncereg;
+
+        string bitsmain;
+        string bitstest;
+        string bitsreg;
+
+
+
+        std::ifstream f("config.ini");
+
+        if (f.is_open()) {
+        while (getline(f, linebuf)){
+            optionbuf = "pubkeymain=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                pubkeymain = linebuf.c_str();
+            }
+            optionbuf = "pubkeytest=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                pubkeytest = linebuf.c_str();
+            }
+            optionbuf = "pubkeyreg=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                pubkeyreg = linebuf.c_str();
+            }
+            optionbuf = "hashmain=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                hashmain = linebuf.c_str();
+            }
+            optionbuf = "hashtest=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                hashtest = linebuf.c_str();
+            }
+            optionbuf = "hashreg=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                hashreg = linebuf.c_str();
+            }
+            optionbuf = "timestamp=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                timestamp = linebuf.c_str();
+            }
+            optionbuf = "unixtime_main=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                unixtime_main = linebuf.c_str();
+            }
+            optionbuf = "unixtime_test=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                unixtime_test = linebuf.c_str();
+            }
+            optionbuf = "unixtime_reg=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                unixtime_reg = linebuf.c_str();
+            }
+            optionbuf = "masternode_time=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "merkleroot=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "noncemain=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "noncetest=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "noncereg=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "bitsmain=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "bitstest=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+            optionbuf = "bitsreg=";
+            if ((( int )linebuf.find(optionbuf)) != -1 )
+            {
+                linebuf.erase(0, optionbuf.length());
+                masternode_time = linebuf.c_str();
+            }
+        }
+        f.close();
+    }
+    else
+        cout << "Can't open file: " << "config.ini" << endl;
+
+    if (parameter == "pubkeymain") {
+        return pubkeymain;
+    }
+    if (parameter == "pubkeytest") {
+        return pubkeytest;
+    }
+    if (parameter == "pubkeyreg") {
+        return pubkeyreg;
+    }
+    if (parameter == "hashmain") {
+        return hashmain;
+    }
+    if (parameter == "hashtest") {
+        return hashtest;
+    }
+    if (parameter == "hashreg") {
+        return hashreg;
+    }
+    if (parameter == "unixtime_main") {
+        return unixtime_main;
+    }    
+    if (parameter == "unixtime_test") {
+        return unixtime_test;
+    } 
+    if (parameter == "unixtime_reg") {
+        return unixtime_reg;
+    } 
+    if (parameter == "masternode_time") {
+        return masternode_time;
+    } 
+    if (parameter == "merkleroot") {
+        return merkleroot;
+    } 
+    if (parameter == "noncemain") {
+        return noncemain;
+    } 
+    if (parameter == "noncetest") {
+        return noncetest;
+    } 
+    if (parameter == "noncereg") {
+        return noncereg;
+    } 
+    if (parameter == "bitsmain") {
+        return bitsmain;
+    } 
+    if (parameter == "bitstest") {
+        return bitstest;
+    } 
+    if (parameter == "bitsreg") {
+        return bitsreg;
+    } 
+    else
+        return "";
+
+}
+
 /**
  * Main network
  */
@@ -54,10 +281,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     // + new zero checkpoint for Tiberium (main network)
-    (0, uint256("0x0000029f807a42c427fe8b514c1760b09c9b8fce117618f0687eedf0b1af61c5"));
+    (0, uint256(GetMainParametersFromConfig("hashmain")));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1520358882, // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
+    atoi(etMainParametersFromConfig("unixtime_main")), // * UNIX timestamp of last checkpoint block (new UNIX time 28/02/2018 00.00)
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -65,19 +292,19 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
 //+new genesis hash for Tiberium testnet
-    boost::assign::map_list_of(0, uint256("0xc6a535cd1c7f65b7b5972221c267fc5ab9a097e4a9ec4cd304b5547fb2af6dc8"));
+    boost::assign::map_list_of(0, uint256(GetMainParametersFromConfig("hashtest")));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1520358883,
+    atoi(GetMainParametersFromConfig("unixtime_test")),
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
 //+new parameters for Tiberium regtest
-    boost::assign::map_list_of(0, uint256("0x2f44ac95af41ab43f178aba7c3ef5b76151030a47499f59aabe1a406ceb6042e"));
+    boost::assign::map_list_of(0, uint256(GetMainParametersFromConfig("hashreg")));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1520358884,
+    atoi(GetMainParametersFromConfig("unixtime_reg")),
     0,
     100};
 
@@ -102,6 +329,7 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
+
         pchMessageStart[0] = 0xbf;
         pchMessageStart[1] = 0x0c;
         pchMessageStart[2] = 0x6b;
@@ -142,25 +370,25 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "The South Korean government has reportedly de facto banned all government officials from holding and trading cryptocurrencies.";
+        const char* pszTimestamp = GetMainParametersFromConfig("timestamp");
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 250 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04ecd1bdd48d28ac426db164a303742fd8c4751f742e260763a5c4f9b675d7d417e0aa0ac8811a8816d1747993deaab9d7a84ffb3b9cfe9735779d23175fd4788c") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex(GetMainParametersFromConfig("pubkeymain")) << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1520358882;
-        genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1110941;
+        genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
+        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsmain"));
+        genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000029f807a42c427fe8b514c1760b09c9b8fce117618f0687eedf0b1af61c5"));
+        assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         //fprintf(to_string(hashGenesisBlock));
-        assert(genesis.hashMerkleRoot == uint256("0xc6a535cd1c7f65b7b5972221c267fc5ab9a097e4a9ec4cd304b5547fb2af6dc8"));
+        assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
         vSeeds.clear();
 
@@ -186,7 +414,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04d33b2dc6f90e15117204f5ee869c414c8251d757c2185e483f78d5eaf5b7e1c0e39cf202622709332926d9f17889340a65556e7c76009786ffef2abf5672ce92";
         strObfuscationPoolDummyAddress = "D87q2gC9j6nNrnzCsg4aY6bHMLsT9nUhEw";
-        nStartMasternodePayments = 1520358882; 
+        nStartMasternodePayments = atoi(GetMainParametersFromConfig("masternode_time")); 
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
@@ -247,11 +475,11 @@ public:
         nBlockEnforceInvalidUTXO = 9902850; //Start enforcing the invalid UTXO's
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1520358883;
-        genesis.nNonce = 22956;
+        genesis.nTime = GetMainParametersFromConfig("unixtime_test");
+        genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000b55bc6e40ce955251b5415343a791858ea6401c4a936fe72f1087f6faf8"));
+        assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashtest")));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -278,7 +506,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04c93a0d0bf4a55ba53ad41744df9f381d645e972d2c0dc0f06ce091dcae1b4d22a0675aea5254f8887999bffef0a1d32836fc60c26bc001b18edde5befe57422e";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        nStartMasternodePayments = 1520358883; //28.02.2018
+        nStartMasternodePayments = atoi(GetMainParametersFromConfig("masternode_time")); //28.02.2018
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
     }
@@ -312,13 +540,13 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Tiberium: 1 day
         nTargetSpacing = 1 * 60;        // Tiberium: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1520358884;
-        genesis.nBits = 0x207fffff;
+        genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_reg"));
+        genesis.nBits = std::hex(GetMainParametersFromConfig("bitsreg"));
         genesis.nNonce = 3;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 19883;
-        assert(hashGenesisBlock == uint256("0x2f44ac95af41ab43f178aba7c3ef5b76151030a47499f59aabe1a406ceb6042e"));
+        assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashreg")));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
