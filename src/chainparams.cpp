@@ -389,10 +389,13 @@ public:
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
+
+        cout << hashGenesisBlock.ToString().c_str() << endl;
+        
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         
         //printf(hashGenesisBlock.ToString().c_str());
-        cout << hashGenesisBlock.ToString().c_str() << endl;
+        
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
