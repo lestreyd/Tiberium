@@ -480,7 +480,6 @@ public:
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
-        fprintf(hashGenesisBlock.ToString());
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashtest")));
 
         vFixedSeeds.clear();
