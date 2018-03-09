@@ -16,6 +16,7 @@
 #include <boost/assign/list_of.hpp>
 #include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;
 using namespace boost::assign;
@@ -390,7 +391,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         
-        printf(hashGenesisBlock.c_str());
+        printf(std::to_string(hashGenesisBlock));
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
