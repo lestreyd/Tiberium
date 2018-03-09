@@ -155,43 +155,43 @@ string GetMainParametersFromConfig(string parameter)
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                merkleroot = linebuf.c_str();
             }
             optionbuf = "noncemain=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                noncemain = linebuf.c_str();
             }
             optionbuf = "noncetest=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                noncetest = linebuf.c_str();
             }
             optionbuf = "noncereg=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                noncereg = linebuf.c_str();
             }
             optionbuf = "bitsmain=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                bitsmain = linebuf.c_str();
             }
             optionbuf = "bitstest=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                bitstest = linebuf.c_str();
             }
             optionbuf = "bitsreg=";
             if ((( int )linebuf.find(optionbuf)) != -1 )
             {
                 linebuf.erase(0, optionbuf.length());
-                masternode_time = linebuf.c_str();
+                bitsreg = linebuf.c_str();
             }
         }
         f.close();
@@ -200,54 +200,75 @@ string GetMainParametersFromConfig(string parameter)
         cout << "Can't open file: " << "config.ini" << endl;
 
     if (parameter == "pubkeymain") {
+        cout << "pubkeymain: " << pubkeymain << endl;
         return pubkeymain;
     }
     if (parameter == "pubkeytest") {
+        cout << "pubkeytest: " << pubkeytest << endl;
         return pubkeytest;
     }
     if (parameter == "pubkeyreg") {
+        cout << "pubkeyreg: " << pubkeyreg << endl;
         return pubkeyreg;
     }
     if (parameter == "hashmain") {
+        cout << "hashmain: " << hashmain << endl;
         return hashmain;
     }
     if (parameter == "hashtest") {
+        cout << "hashtest: " << hashtest << endl;
         return hashtest;
     }
     if (parameter == "hashreg") {
+        cout << "hashreg: " << hashreg << endl;
         return hashreg;
     }
+    if (parameter == "timestamp") {
+        cout << "timestamp: " << timestamp << endl;
+        return timestamp;
+    }
     if (parameter == "unixtime_main") {
+        cout << "unixtime_main: " << unixtime_main << endl;
         return unixtime_main;
     }    
     if (parameter == "unixtime_test") {
+        cout << "unixtime_test: " << unixtime_test << endl;
         return unixtime_test;
     } 
     if (parameter == "unixtime_reg") {
+        cout << "unixtime_reg: " << unixtime_reg << endl;
         return unixtime_reg;
     } 
     if (parameter == "masternode_time") {
+        cout << "masternode_time: " << masternode_time << endl;
         return masternode_time;
     } 
     if (parameter == "merkleroot") {
+        cout << "merkleroot: " << merkleroot << endl;
         return merkleroot;
     } 
     if (parameter == "noncemain") {
+        cout << "noncemain: " << noncemain << endl;
         return noncemain;
     } 
     if (parameter == "noncetest") {
+        cout << "noncetest: " << noncetest << endl;
         return noncetest;
     } 
     if (parameter == "noncereg") {
+        cout << "noncereg: " << noncereg << endl;
         return noncereg;
     } 
     if (parameter == "bitsmain") {
+        cout << "bitsmain: " << bitsmain << endl;
         return bitsmain;
     } 
     if (parameter == "bitstest") {
+        cout << "bitstest: " << bitstest << endl;
         return bitstest;
     } 
     if (parameter == "bitsreg") {
+        cout << "bitsreg: " << bitsreg << endl;
         return bitsreg;
     } 
     else
@@ -390,8 +411,9 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-        cout << hashGenesisBlock.ToString().c_str() << endl;
-        
+        cout << "Genesis block for assertion: " <<hashGenesisBlock.ToString().c_str() << endl;
+        cout << "Merkle root for assertion: " <<genesis.hashMerkleRoot.ToString().c_str() << endl;
+
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         
         //printf(hashGenesisBlock.ToString().c_str());
