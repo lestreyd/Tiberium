@@ -510,6 +510,9 @@ public:
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
+
+        cout << "Genesis block for test assertion: " << hashGenesisBlock.ToString().c_str() << endl;
+
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashtest")));
 
         vFixedSeeds.clear();
@@ -576,6 +579,9 @@ public:
         genesis.nNonce = 3;
 
         hashGenesisBlock = genesis.GetHash();
+
+        cout << "Genesis block for regtest assertion: " << hashGenesisBlock.ToString().c_str() << endl;
+
         nDefaultPort = 19883;
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashreg")));
 
