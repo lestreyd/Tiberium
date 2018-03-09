@@ -391,7 +391,8 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         
-        printf(hashGenesisBlock.ToString().c_str());
+        //printf(hashGenesisBlock.ToString().c_str());
+        cout << hashGenesisBlock.ToString().c_str() << endl;
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
