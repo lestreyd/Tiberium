@@ -125,8 +125,8 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
         return error("CheckProofOfWork() : nBits below minimum work");
 
     // Check proof of work matches claimed amount
-    if (hash > bnTarget)
-        return error(strcat("CheckProofOfWork() : hash doesn't match nBits < ", hash.ToString().c_str()));
+    if (hash > bnTarget || hash < bnTarget)
+        return error(strcat("CheckProofOfWork() : hash doesn't match nBits: ", hash.ToString().c_str()));
 
     return true;
 }
