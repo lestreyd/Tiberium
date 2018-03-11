@@ -122,7 +122,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > Params().ProofOfWorkLimit())
-        return error(strcat("CheckProofOfWork() : nBits below minimum work", Params().ProofOfWorkLimit().c_str()));
+        return error(strcat("CheckProofOfWork() : nBits below minimum work", Params().ProofOfWorkLimit().ToString().c_str()));
 
     // Check proof of work matches claimed amount
     if (hash > bnTarget || hash < bnTarget)
