@@ -4337,7 +4337,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
 {
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetHash(), block.nBits))
-        return state.DoS(50, error(strcat("CheckBlockHeader() : proof of work failed", block.GetHash().ToString().c_str())),
+        return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
             REJECT_INVALID, "high-hash");
 
     // Version 4 header must be used after Params().Zerocoin_StartHeight(). And never before.
@@ -4509,6 +4509,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
         return error("%s : null pindexPrev for block %s", __func__, block.GetHash().ToString().c_str());
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
+	cout << "(DEBUG) nBits needed: " << nBitsRequired.c_str() << endl;
 
     if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
         double n1 = ConvertBitsToDouble(block.nBits);
