@@ -200,63 +200,63 @@ string GetMainParametersFromConfig(string parameter)
         cout << "Can't open file: " << "config.ini" << endl;
 
     if (parameter == "pubkeymain") {
-        cout << "pubkeymain: " << pubkeymain << endl;
+        cout << "(DEBUG) pubkeymain: " << pubkeymain << endl;
         return pubkeymain;
     }
     if (parameter == "pubkeytest") {
-        cout << "pubkeytest: " << pubkeytest << endl;
+        cout << "(DEBUG) pubkeytest: " << pubkeytest << endl;
         return pubkeytest;
     }
     if (parameter == "pubkeyreg") {
-        cout << "pubkeyreg: " << pubkeyreg << endl;
+        cout << "(DEBUG) pubkeyreg: " << pubkeyreg << endl;
         return pubkeyreg;
     }
     if (parameter == "hashmain") {
-        cout << "hashmain: " << hashmain << endl;
+        cout << "(DEBUG) hashmain: " << hashmain << endl;
         return hashmain;
     }
     if (parameter == "hashtest") {
-        cout << "hashtest: " << hashtest << endl;
+        cout << "(DEBUG) hashtest: " << hashtest << endl;
         return hashtest;
     }
     if (parameter == "hashreg") {
-        cout << "hashreg: " << hashreg << endl;
+        cout << "(DEBUG) hashreg: " << hashreg << endl;
         return hashreg;
     }
     if (parameter == "timestamp") {
-        cout << "timestamp: " << timestamp << endl;
+        cout << "(DEBUG) timestamp: " << timestamp << endl;
         return timestamp;
     }
     if (parameter == "unixtime_main") {
-        cout << "unixtime_main: " << unixtime_main << endl;
+        cout << "(DEBUG) unixtime_main: " << unixtime_main << endl;
         return unixtime_main;
     }    
     if (parameter == "unixtime_test") {
-        cout << "unixtime_test: " << unixtime_test << endl;
+        cout << "(DEBUG) unixtime_test: " << unixtime_test << endl;
         return unixtime_test;
     } 
     if (parameter == "unixtime_reg") {
-        cout << "unixtime_reg: " << unixtime_reg << endl;
+        cout << "(DEBUG) unixtime_reg: " << unixtime_reg << endl;
         return unixtime_reg;
     } 
     if (parameter == "masternode_time") {
-        cout << "masternode_time: " << masternode_time << endl;
+        cout << "(DEBUG) masternode_time: " << masternode_time << endl;
         return masternode_time;
     } 
     if (parameter == "merkleroot") {
-        cout << "merkleroot: " << merkleroot << endl;
+        cout << "(DEBUG) merkleroot: " << merkleroot << endl;
         return merkleroot;
     } 
     if (parameter == "noncemain") {
-        cout << "noncemain: " << noncemain << endl;
+        cout << "(DEBUG) noncemain: " << noncemain << endl;
         return noncemain;
     } 
     if (parameter == "noncetest") {
-        cout << "noncetest: " << noncetest << endl;
+        cout << "(DEBUG) noncetest: " << noncetest << endl;
         return noncetest;
     } 
     if (parameter == "noncereg") {
-        cout << "noncereg: " << noncereg << endl;
+        cout << "(DEBUG) noncereg: " << noncereg << endl;
         return noncereg;
     } 
     if (parameter == "bitsmain") {
@@ -264,11 +264,11 @@ string GetMainParametersFromConfig(string parameter)
         return bitsmain;
     } 
     if (parameter == "bitstest") {
-        cout << "bitstest: " << bitstest << endl;
+        cout << "(DEBUG) bitstest: " << bitstest << endl;
         return bitstest;
     } 
     if (parameter == "bitsreg") {
-        cout << "bitsreg: " << bitsreg << endl;
+        cout << "(DEBUG) bitsreg: " << bitsreg << endl;
         return bitsreg;
     } 
     else
@@ -407,13 +407,15 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
         //genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
-        genesis.nBits = uint32(Params().ProofOfWorkLimit());
+        genesis.nBits = atoi(Params().ProofOfWorkLimit().ToString().c_str());
+        cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
+
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
 
-        cout << "Genesis block for assertion: " <<hashGenesisBlock.ToString().c_str() << endl;
-        cout << "Merkle root for assertion: " <<genesis.hashMerkleRoot.ToString().c_str() << endl;
+        cout << "(DEBUG) Genesis block for assertion: " <<hashGenesisBlock.ToString().c_str() << endl;
+        cout << "(DEBUG) Merkle root for assertion: " <<genesis.hashMerkleRoot.ToString().c_str() << endl;
 
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
         
@@ -512,7 +514,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-        cout << "Genesis block for test assertion: " << hashGenesisBlock.ToString().c_str() << endl;
+        cout << "(DEBUG) Genesis block for test assertion: " << hashGenesisBlock.ToString().c_str() << endl;
 
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashtest")));
 
@@ -581,7 +583,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-        cout << "Genesis block for regtest assertion: " << hashGenesisBlock.ToString().c_str() << endl;
+        cout << "(DEBUG) Genesis block for regtest assertion: " << hashGenesisBlock.ToString().c_str() << endl;
 
         nDefaultPort = 19883;
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashreg")));
