@@ -406,7 +406,8 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
-        genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
+        //genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
+        genesis.nBits = Params().ProofOfWorkLimit();
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
