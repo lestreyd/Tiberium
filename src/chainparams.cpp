@@ -410,6 +410,8 @@ public:
         //genesis.nBits = atoi((~uint256(0) >> 24).ToString().c_str());
         cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
 
+
+        //genesis.nNonce = CBigNum().SetCompact(block.nBits).getuint256();
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
@@ -418,9 +420,12 @@ public:
         cout << "(DEBUG) Merkle root for assertion: " <<genesis.hashMerkleRoot.ToString().c_str() << endl;
 
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
+
+        cout << "(DEBUG) Target nNonce: " << CBigNum().SetCompact(block.nBits).getuint256().ToString().c_str() << endl;
         
         //printf(hashGenesisBlock.ToString().c_str());
-        
+
+}
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
