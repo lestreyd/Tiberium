@@ -4517,15 +4517,15 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
         if (abs(n1 - n2) > n1 * 0.5)
             //If parameter is readable, i just make it =
-            block.nBits = nBitsRequired;
-            //return error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1 - n2), n1, n2, pindexPrev->nHeight + 1);
+           // block.nBits = nBitsRequired;
+            return error("%s : incorrect proof of work (DGW pre-fork) - %f %f %f at %d", __func__, abs(n1 - n2), n1, n2, pindexPrev->nHeight + 1);
 
         return true;
     }
 
     if (block.nBits != nBitsRequired)
-        block.nBits = nBitsRequired;
-        //return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
+        //block.nBits = nBitsRequired;
+        return error("%s : incorrect proof of work at %d", __func__, pindexPrev->nHeight + 1);
 
     if (block.IsProofOfStake()) {
         uint256 hashProofOfStake;
