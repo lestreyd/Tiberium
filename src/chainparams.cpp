@@ -407,7 +407,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
         //genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
-        genesis.nBits = atoi(Params().ProofOfWorkLimit().ToString().c_str());
+        genesis.nBits = atoi((~uint256(0) >> 24).ToString().c_str());
         cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
 
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
