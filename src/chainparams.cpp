@@ -407,7 +407,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
         //genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
-        genesis.nBits = Params().ProofOfWorkLimit();
+        genesis.nBits = uint32(Params().ProofOfWorkLimit());
         genesis.nNonce = atoi(GetMainParametersFromConfig("noncemain"));
 
         hashGenesisBlock = genesis.GetHash();
