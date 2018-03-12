@@ -4509,7 +4509,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
         return error("%s : null pindexPrev for block %s", __func__, block.GetHash().ToString().c_str());
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
-	cout << "(DEBUG) nBits needed: " << nBitsRequired.ToString().c_str() << endl;
+	cout << "(DEBUG) nBits needed: " << nBitsRequired << endl;
 
     if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
         double n1 = ConvertBitsToDouble(block.nBits);
