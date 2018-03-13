@@ -406,7 +406,7 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
-        genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
+        genesis.nBits = Params().ProofOfWorkLimit().GetCompact();//atoi(GetMainParametersFromConfig("bitsmain"));
         //genesis.nBits = atoi((~uint256(0) >> 24).ToString().c_str());
         //cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
 
@@ -422,7 +422,7 @@ public:
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
 
         cout << "(DEBUG) Target nNonce: " << CBigNum().SetCompact(genesis.nBits).getuint256().ToString().c_str() << endl;
-        cout << "(DEBUG) Target nBits : " << Params().ProofOfWorkLimit().GetCompact() << endl;
+        //cout << "(DEBUG) Target nBits : " << Params().ProofOfWorkLimit().GetCompact() << endl;
         
         //printf(hashGenesisBlock.ToString().c_str());
 
