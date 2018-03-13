@@ -374,7 +374,7 @@ public:
         nMaxMoneyOut = 21000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 259200;
+        nLastPOWBlock = 0;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
         nZerocoinStartTime = 1535760000; // 01.09.2018 00.00.00
@@ -408,7 +408,7 @@ public:
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
         genesis.nBits = atoi(GetMainParametersFromConfig("bitsmain"));
         //genesis.nBits = atoi((~uint256(0) >> 24).ToString().c_str());
-        cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
+        //cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
 
 
         //genesis.nNonce = CBigNum().SetCompact(block.nBits).getuint256();
@@ -427,6 +427,7 @@ public:
 
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
+
 
         vSeeds.clear();
 
