@@ -402,7 +402,7 @@ public:
         txNew.vout[0].nValue = 250 * COIN;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex(GetMainParametersFromConfig("pubkeymain")) << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
-        genesis.hashPrevBlock = 0;
+        genesis.hashPrevBlock = 00000000000000;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
