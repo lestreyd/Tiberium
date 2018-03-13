@@ -422,6 +422,7 @@ public:
         assert(hashGenesisBlock == uint256(GetMainParametersFromConfig("hashmain")));
 
         cout << "(DEBUG) Target nNonce: " << CBigNum().SetCompact(genesis.nBits).getuint256().ToString().c_str() << endl;
+        cout << "(DEBUG) Target nBits : " << Params().ProofOfWorkLimit().GetCompact() << endl;
         
         //printf(hashGenesisBlock.ToString().c_str());
 
