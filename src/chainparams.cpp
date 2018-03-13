@@ -374,7 +374,7 @@ public:
         nMaxMoneyOut = 21000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 0;
+        nLastPOWBlock = 259200;
         nModifierUpdateBlock = 615800;
         nZerocoinStartHeight = 863787;
         nZerocoinStartTime = 1535760000; // 01.09.2018 00.00.00
@@ -407,7 +407,9 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = atoi(GetMainParametersFromConfig("unixtime_main"));
         //genesis.nBits = Params().ProofOfWorkLimit().GetCompact();//atoi(GetMainParametersFromConfig("bitsmain"));
-        genesis.nBits = atoi((~uint256(0) >> 20).ToString().c_str());
+        genesis.nBits = bnProofOfWorkLimit.GetCompact();
+        //atoi(GetMainParametersFromConfig("bitsmain")); 
+        //printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());;
         //cout << "(DEBUG) Correct nBits for this network: " << genesis.nBits << endl;
 
 
