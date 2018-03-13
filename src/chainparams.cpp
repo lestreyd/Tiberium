@@ -425,7 +425,6 @@ public:
         
         //printf(hashGenesisBlock.ToString().c_str());
 
-}
 
         assert(genesis.hashMerkleRoot == uint256(GetMainParametersFromConfig("merkleroot")));
 
